@@ -18,6 +18,8 @@ if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ]; then
     echo " "
 else
 
+    BRANCH_NAME="master"
+
     INITIAL_DIR=$PWD
 
     ORIG_GIT_REMOTE=$1
@@ -48,7 +50,7 @@ else
     echo "-- set to a new remote: $NEW_REMOTE_ORIGIN"
     git remote remove origin
     git remote add origin $NEW_REMOTE_ORIGIN
-    git push origin master
+    git push origin $BRANCH_NAME
 
 
     cd $INITIAL_DIR
