@@ -48,7 +48,7 @@ else
     echo "-- set to a new remote: $NEW_REMOTE_ORIGIN"
     git remote remove origin
     git remote add origin $NEW_REMOTE_ORIGIN
-    git push origin master
+    git push origin --all
 
 
     cd $INITIAL_DIR
