@@ -12,7 +12,7 @@
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ]; then
     echo "<<< Git project isolation tool >>>"
     echo " "
-    echo "  usage: $0 <original-git-remote> <dir-to-isolate> <new-repo-name> <new-remote-origin-location>"
+    echo "  usage: repo-extract.sh <original-git-remote> <dir-to-isolate> <new-repo-name> <new-remote-origin-location>"
     echo " "
     echo "  note: provide an absolute path (or URL) for <original-git-remote> and <new-remote-origin-location> parameters"
     echo " "
