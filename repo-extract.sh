@@ -10,11 +10,14 @@
 # Script uses a "./temp" temporary folder, can be deleted after the work.
 
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
+    #also update README.md
     echo " "
     echo "<<< repo-extract - Git project isolation tool >>>"
     echo "Isolates a subdirectory from a repository and creates a new repository with a subdirectory content, with its history preserved."
     echo " "
     echo "  usage: repo-extract.sh <original-git-remote> <dir-to-isolate> <new-repo-name> [<new-remote-origin-location>]"
+    echo " "
+    echo "   if <new-remote-origin-location> is not specified, uses a temporary origin - this is a safe, non-destructive option for testing"
     echo " "
     echo "  note: provide an absolute path (or URL) for <original-git-remote> and <new-remote-origin-location> parameters"
     echo " "
@@ -53,9 +56,6 @@ else
 
     if [ -z "$4" ]; then
         NEW_REMOTE_ORIGIN=$TMP_DIR_NAME/origin
-        #cd $TMP_DIR_NAME
-        #mkdir "origin"
-        #cd "origin"
         git init --bare $NEW_REMOTE_ORIGIN
         echo "---- No remote origin specified. Using a temporary remote origin: $NEW_REMOTE_ORIGIN"
     else
