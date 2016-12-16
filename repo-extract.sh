@@ -10,7 +10,9 @@
 # Script uses a "./temp" temporary folder, can be deleted after the work.
 
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ]; then
-    echo "<<< Git project isolation tool >>>"
+    echo " "
+    echo "<<< repo-extract - Git project isolation tool >>>"
+    echo "Isolates a subdirectory from a repository and creates a new repository with a subdirectory content, with its history preserved."
     echo " "
     echo "  usage: repo-extract.sh <original-git-remote> <dir-to-isolate> <new-repo-name> <new-remote-origin-location>"
     echo " "
