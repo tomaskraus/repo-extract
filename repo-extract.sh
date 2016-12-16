@@ -27,9 +27,13 @@ else
 
 
     echo "-- initialize temporary dir: $INITIAL_DIR/temp"
-    TMP_DIR_NAME=$INITIAL_DIR/temp
-    TMP_DIR_REPO=$TMP_DIR_NAME/orig-repo
-    rm -r -f $TMP_DIR_NAME
+        TMP_DIR_NAME=$INITIAL_DIR/temp
+        TMP_DIR_REPO=$TMP_DIR_NAME/orig-repo
+        rm -r -f $TMP_DIR_NAME
+    #avoid continuation if an error occurs during the deletion
+    if [ -d $TMP_DIR_NAME ]; then
+        return -1
+    fi
     mkdir $TMP_DIR_NAME
 
 
