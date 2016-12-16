@@ -9,12 +9,12 @@
 #
 # Script uses a "./temp" temporary folder, can be deleted after the work.
 
-if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ]; then
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
     echo " "
     echo "<<< repo-extract - Git project isolation tool >>>"
     echo "Isolates a subdirectory from a repository and creates a new repository with a subdirectory content, with its history preserved."
     echo " "
-    echo "  usage: repo-extract.sh <original-git-remote> <dir-to-isolate> <new-repo-name> <new-remote-origin-location>"
+    echo "  usage: repo-extract.sh <original-git-remote> <dir-to-isolate> <new-repo-name> [<new-remote-origin-location>]"
     echo " "
     echo "  note: provide an absolute path (or URL) for <original-git-remote> and <new-remote-origin-location> parameters"
     echo " "
@@ -25,7 +25,6 @@ else
     ORIG_GIT_REMOTE=$1
     DIR_TO_ISOLATE=$2
     NEW_REPO_NAME=$3
-    NEW_REMOTE_ORIGIN=$4
 
 
     echo "-- initialize temporary dir: $INITIAL_DIR/temp"
@@ -51,7 +50,20 @@ else
     #clean
     git gc
 
+
+    if [ -z "$4" ]; then
+        NEW_REMOTE_ORIGIN=$TMP_DIR_NAME/origin
+        #cd $TMP_DIR_NAME
+        #mkdir "origin"
+        #cd "origin"
+        git init --bare $NEW_REMOTE_ORIGIN
+        echo "---- No remote origin specified. Using a temporary remote origin: $NEW_REMOTE_ORIGIN"
+    else
+        NEW_REMOTE_ORIGIN=$4
+    fi
+
     echo "-- set to a new remote: $NEW_REMOTE_ORIGIN"
+    cd $TMP_DIR_REPO
     git remote remove origin
     git remote add origin $NEW_REMOTE_ORIGIN
     git push origin --all
