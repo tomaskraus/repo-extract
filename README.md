@@ -24,3 +24,11 @@ That new repository is then pushed to the destination remote.
 ### tip
 
 When extracting multiple directories from one source-remote repository, speed-up the cloning process by clone that remote repository to your machine first, and then use that cloned one as a local source-remote.
+
+### more examples
+
+preview the result, without a modification of the destination remote:
+```
+. repo-extract.sh "https://github.com/user/all-project" project1 project-1
+```
+the result repository will be at: `./temp/project-1`
