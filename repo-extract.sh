@@ -13,7 +13,9 @@ if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
     #also update README.md
     echo " "
     echo "<<< repo-extract - Git project isolation tool >>>"
-    echo "Isolates a subdirectory from a repository cloned from a remote and creates a new repository with that subdirectory content, with its history preserved."
+    echo "Extract a directory from git repository to a new repository, with directory history preserved."
+    echo "  In detail: Isolates a subdirectory from a repository cloned from a remote, using filter-branch git command."
+    echo "Creates a new repository with that subdirectory content at the root."
     echo "That new repository is then pushed to the destination remote."
     echo " "
     echo "  usage: repo-extract.sh <source-remote> <dir-to-isolate> <new-repo-name> [<destination-remote>]"

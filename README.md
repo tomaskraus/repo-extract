@@ -3,7 +3,9 @@ repo-extract
 
 ```
 <<< repo-extract - Git project isolation tool >>>
-Isolates a subdirectory from a repository cloned from a remote and creates a new repository with that subdirectory content, with its history preserved.
+Extract a directory from git repository to a new repository, with directory history preserved.
+  In detail: Isolates a subdirectory from a repository cloned from a remote, using filter-branch git command.
+Creates a new repository with that subdirectory content at the root.
 That new repository is then pushed to the destination remote.
 
   usage: repo-extract.sh <source-remote> <dir-to-isolate> <new-repo-name> [<destination-remote>]
