@@ -11,6 +11,7 @@ That new repository is then pushed to the destination remote.
   usage: repo-extract.sh <source-remote> <dir-to-isolate> <new-repo-name> [<destination-remote>]
 
     if <destination-remote> is not specified, uses a local, temporary remote as a destination. This is a safe, non-destructive option for testing purposes.
+    if <dir-to-isolate> is set to ".", the repository from source-remote is just "pushed" to the destination-remote
 
   At the end, clones a temporary repository from the updated destination-remote, to see the fresh result.
 
@@ -32,3 +33,7 @@ preview the result, without a modification of the destination remote:
 . repo-extract.sh "https://github.com/user/all-project" project1 project-1
 ```
 the result repository will be at: `./temp/project-1`
+
+### see also
+
+[moving-files-from-one-git-repository-to-another-preserving-history](http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/)

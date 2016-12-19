@@ -21,6 +21,7 @@ if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
     echo "  usage: repo-extract.sh <source-remote> <dir-to-isolate> <new-repo-name> [<destination-remote>]"
     echo " "
     echo "    if <destination-remote> is not specified, uses a local, temporary remote as a destination. This is a safe, non-destructive option for testing purposes."
+    echo "    if <dir-to-isolate> is set to \".\", the repository from source-remote is just \"pushed\" to the destination-remote"
     echo " "
     echo "  At the end, clones a temporary repository from the updated destination-remote, to see the fresh result."
     echo " "
