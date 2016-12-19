@@ -25,3 +25,7 @@ That new repository is then pushed to the destination remote.
 ### tip
 
 When extracting multiple directories from one source-remote repository, speed-up the cloning process by clone that remote repository to your machine first, and then use that cloned one as a local source-remote.
+
+### see also
+
+[moving-files-from-one-git-repository-to-another-preserving-history](http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/)
