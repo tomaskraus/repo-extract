@@ -57,7 +57,7 @@ else
     #re-create the working copy
     git reset HEAD --hard
     if [ $DIR_TO_ISOLATE != "." ]; then
-        echo "-- isolate git dir: $DIR_TO_ISOLATE from $TMP_DIR_REPO"
+        echo "-- isolate a directory: $DIR_TO_ISOLATE from $TMP_DIR_REPO"
         git filter-branch --subdirectory-filter $DIR_TO_ISOLATE -- --all
     else
         echo "-- reset: $TMP_DIR_REPO"
