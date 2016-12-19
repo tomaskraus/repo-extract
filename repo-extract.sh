@@ -53,11 +53,15 @@ else
     git clone $SOURCE_REMOTE $TMP_DIR_REPO
 
 
-    echo "-- isolate git dir: $DIR_TO_ISOLATE from $TMP_DIR_REPO"
     cd $TMP_DIR_REPO
     #re-create the working copy
     git reset HEAD --hard
-    git filter-branch --subdirectory-filter $DIR_TO_ISOLATE -- --all
+    if [ $DIR_TO_ISOLATE != "." ]; then
+        echo "-- isolate git dir: $DIR_TO_ISOLATE from $TMP_DIR_REPO"
+        git filter-branch --subdirectory-filter $DIR_TO_ISOLATE -- --all
+    else
+        echo "-- reset: $TMP_DIR_REPO"
+    fi
     #clean
     git gc
 
