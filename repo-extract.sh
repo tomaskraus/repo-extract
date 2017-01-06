@@ -56,6 +56,8 @@ else
 
     cd $TMP_DIR_REPO
     #re-create the working copy
+    echo "-- switch to the master branch at: $TMP_DIR_REPO"
+    git checkout master
     git reset HEAD --hard
     if [ $DIR_TO_ISOLATE != "." ]; then
         echo "-- isolate a directory: $DIR_TO_ISOLATE from $TMP_DIR_REPO"
